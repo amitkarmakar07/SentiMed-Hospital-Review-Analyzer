@@ -1,10 +1,18 @@
 from collections import defaultdict
 import nltk
-nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
+
+def download_punkt():
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        nltk.download('punkt')
+
 from model_utils import predict, sentiment_map, aspect_map
 
 def analyze_reviews(reviews, include_general=False):
+    download_punkt() 
+
     aspects = []
     sentiment_count = {"Positive": 0, "Negative": 0}
     for review in reviews:
