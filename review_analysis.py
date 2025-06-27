@@ -1,13 +1,16 @@
 from collections import defaultdict
 import nltk
-
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
-
+import streamlit as st
 from nltk.tokenize import sent_tokenize
 from model_utils import predict, sentiment_map, aspect_map
+
+# Download NLTK punkt_tab resource
+@st.cache_resource
+def download_nltk_resources():
+    nltk.download('punkt_tab', quiet=True)
+    nltk.download('punkt', quiet=True)  
+
+download_nltk_resources()
 
 def analyze_reviews(reviews, include_general=False):
     aspects = []
