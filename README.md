@@ -9,7 +9,6 @@
 ## 📸 App Demo
 ![Demo of the App](assets/demo1.png)
 ![Demo of the App](assets/demo2.png)
-Try the live demo here 👉 [https://sentimed-hra-ak.streamlit.app/]
 
 ---
 
