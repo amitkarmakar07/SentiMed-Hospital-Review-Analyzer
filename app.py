@@ -55,7 +55,7 @@ with st.sidebar:
     )
 
 if selected == "Location-Based Search":
-    st.subheader("📍 Location Input")
+    st.subheader("📍 Give Location Input")
     use_auto = st.checkbox("Use my current location (auto-detect)")
     lat, lon = None, None
 
