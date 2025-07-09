@@ -49,7 +49,7 @@
 | Model         | Custom MultiTask BERT (`sentiment`, `aspect`)              |
 | Hosting       | Streamlit Cloud, Hugging Face Hub                          |
 | Maps & Location | Google Maps API, Geolocation (via JS Eval)               |
-| Scraping      | **Selenium (ChromeDriver)** + BeautifulSoup                |
+| Scraping      | BeautifulSoup                |
 
 ---
 
