@@ -21,7 +21,7 @@ with st.sidebar:
         default_index=0,
         styles={
             "container": {
-                "background-color": "#ff0000",  # Red background for the sidebar container
+                "background-color": "#ff0000",  
                 "padding": "10px",
                 "border-radius": "10px"
             },
@@ -35,15 +35,15 @@ with st.sidebar:
             "nav-link": {
                 "font-size": "18px",
                 "color": "white",
-                "background-color": "#cc0000",  # Darker red for menu items
+                "background-color": "#cc0000",  
                 "padding": "10px",
                 "border-radius": "5px",
                 "margin": "5px 0",
                 "text-align": "left",
-                "--hover-color": "#e60000"  # Lighter red on hover
+                "--hover-color": "#e60000"  
             },
             "nav-link-selected": {
-                "background-color": "#990000",  # Even darker red for selected item
+                "background-color": "#990000",  
                 "color": "white",
                 "font-weight": "bold"
             },
@@ -73,11 +73,11 @@ if selected == "Location-Based Search":
                 st.success(f"Location set to: {lat:.4f}, {lon:.4f}")
 
     if lat and lon:
-        hospitals = fetch_hospitals(lat, lon)[:10]  # Limit to 10 hospitals
-        st.map(pd.DataFrame([{"lat": h["lat"], "lon": h["lon"]} for h in hospitals[:10]]))  # Limit map to 10 hospitals
+        hospitals = fetch_hospitals(lat, lon)[:10]  
+        st.map(pd.DataFrame([{"lat": h["lat"], "lon": h["lon"]} for h in hospitals[:10]]))  
 
         valid_hospitals = []
-        for h in hospitals[:10]:  # Limit loop to 10 hospitals
+        for h in hospitals[:10]:  
             try:
                 aspects, sentiment_count = analyze_reviews(h["reviews"])
                 h["positive_ratio"] = sentiment_count["Positive"] / (sentiment_count["Positive"] + sentiment_count["Negative"] + 1e-5)
@@ -119,7 +119,7 @@ if selected == "Location-Based Search":
 
         st.subheader("🏥 Recommended Hospitals")
         if valid_hospitals:
-            top_hospitals = sorted(valid_hospitals, key=score_hospital, reverse=True)[:5]  # Top 5 from valid hospitals
+            top_hospitals = sorted(valid_hospitals, key=score_hospital, reverse=True)[:5]  
             for h in top_hospitals:
                 score = score_hospital(h)
                 st.success(f"{h['name']} (Score: {score:.2f})")
@@ -158,3 +158,4 @@ elif selected == "Upload CSV Feedback":
                 file_name="hospital_feedback.pdf",
                 mime="application/pdf"
             )
+
